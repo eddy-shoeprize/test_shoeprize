@@ -1,5 +1,6 @@
-import { BannerProps } from ".";
+import { getHomeBrandShortCutBanner } from "@/lib";
 
-export default function BrandShortCutBanner({ banners }: BannerProps) {
+export default async function BrandShortCutBanner() {
+  const { banners } = await getHomeBrandShortCutBanner();
   return <div>{banners?.map((banner) => banner.title)}</div>;
 }

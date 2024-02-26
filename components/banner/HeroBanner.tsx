@@ -1,6 +1,7 @@
-import { BannerProps } from ".";
+import { getHeroBanner } from "@/lib";
 import { Slider } from "../Slider";
 
-export default function HeroBanner({ banners }: BannerProps) {
+export default async function HeroBanner() {
+  const { banners } = await getHeroBanner();
   return <Slider banners={banners}></Slider>;
 }

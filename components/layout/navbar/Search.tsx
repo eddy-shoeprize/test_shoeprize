@@ -30,26 +30,9 @@ export default function Search() {
 
     router.push(createUrl("/search", newParams));
   }
-  const [selectedDate, setSelectedDate] = useState("");
-
-  const handleDateChange = (e: any) => {
-    const inputDate = e.target.value;
-
-    // yyyy-mm-dd 형식의 입력된 날짜를 yyyy/mm/dd로 변경
-    const formattedDate = inputDate;
-
-    setSelectedDate(formattedDate);
-  };
-
-  const handleSubmit = () => {
-    // 선택된 날짜 활용 예시
-    console.log("선택된 날짜:", selectedDate);
-    // 여기에 선택된 날짜를 활용하는 로직을 추가할 수 있습니다.
-  };
 
   return (
     <>
-      <input type="date" onChange={handleDateChange} />
       <form>
         <input
           type="text"

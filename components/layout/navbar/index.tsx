@@ -18,7 +18,7 @@ export default function Navbar() {
     },
     {
       title: "투데이",
-      path: "/",
+      path: "/today",
     },
     {
       title: "컬처",

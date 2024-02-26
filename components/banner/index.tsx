@@ -1,33 +1,21 @@
-import { Banner, fetchUserData } from "@/lib";
+import { fetchBanner } from "@/lib";
 import React from "react";
 import HeroBanner from "./HeroBanner";
-import DefaultBanner from "./DefaultBanner";
 import BrandShortCutBanner from "./BrandShortCutBanner";
 import RoundShortCutBanner from "./RoundShortCutBanner";
+import ImageBanner from "./ImageBanner";
 
 interface BannerTypeProps {
-  type: "HERO" | "DEFAULT" | "HOME_ROUND_SHORT_CUT" | "HOME_BRAND_SHORT_CUT";
-}
-
-export interface BannerProps {
-  banners: Banner[] | undefined; // 'banners' 프로퍼티의 타입을 정확히 지정합니다.
+  type: "HERO" | "HOME_IMAGE" | "HOME_ROUND_SHORT_CUT" | "HOME_BRAND_SHORT_CUT";
 }
 
 const Banner: React.FC<BannerTypeProps> = async ({ type }) => {
-  const banners = await fetchUserData(type);
-
-  if (!banners?.length) return null;
-
   return (
     <>
-      {type == "HERO" && <HeroBanner banners={banners} />}
-      {type == "DEFAULT" && <DefaultBanner banners={banners} />}
-      {type == "HOME_ROUND_SHORT_CUT" && (
-        <BrandShortCutBanner banners={banners} />
-      )}
-      {type == "HOME_BRAND_SHORT_CUT" && (
-        <RoundShortCutBanner banners={banners} />
-      )}
+      {type == "HERO" && <HeroBanner />}
+      {type == "HOME_ROUND_SHORT_CUT" && <RoundShortCutBanner />}
+      {type == "HOME_BRAND_SHORT_CUT" && <BrandShortCutBanner />}
+      {type == "HOME_IMAGE" && <ImageBanner />}
     </>
   );
 };
